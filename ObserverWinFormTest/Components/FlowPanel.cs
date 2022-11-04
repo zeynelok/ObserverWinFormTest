@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ObserverWinFormTest.Entity;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
@@ -14,15 +15,19 @@ namespace ObserverWinFormTest.Components
     public partial class FlowPanel : Control, IObserver<Message>
     {
         private IDisposable _cancellation;
-        private readonly List<string> _messages;
-        public string Type;
+
+        private readonly List<Message> _messages;
+        private readonly string _name;
+        public List<string> Types;
         SolidBrush brush = new SolidBrush(Color.White);
         Font titleFont;
-        public FlowPanel(MessagesHandler provider, string type)
-        {
-            Type = type;
 
-            _messages = new List<string>();
+        public FlowPanel(MessagesHandler provider, string name, IEnumerable<string> types)
+        {
+            _name = name;
+            Types = types.ToList();
+
+            _messages = new List<Message>();
             _cancellation = provider.Subscribe(this);
 
             titleFont = new Font(this.Font, FontStyle.Bold);
@@ -40,9 +45,9 @@ namespace ObserverWinFormTest.Components
 
         public void OnNext(Message value)
         {
-            if (value.Type != Type) return;
+            if (!Types.Any(t => t == value.Asset.AssetType.Type)) return;
 
-            _messages.Add(value.Content);
+            _messages.Add(value);
             Invalidate();
         }
 
@@ -51,8 +56,8 @@ namespace ObserverWinFormTest.Components
             var rec = new Rectangle(5, 25, Width - 10, Height - 10);
             e.Graphics.Clear(this.BackColor);
 
-            e.Graphics.DrawString(Type, titleFont, brush, 5, 5);
-            e.Graphics.DrawString(string.Join(",", _messages), this.Font, brush, rec);
+            e.Graphics.DrawString($"{_name} : {string.Join(" / ", Types)}", titleFont, brush, 5, 5);
+            e.Graphics.DrawString(string.Join(", ", _messages.Select(m => m.ToString())), this.Font, brush, rec);
         }
 
         protected override void OnResize(EventArgs e)
@@ -60,6 +65,5 @@ namespace ObserverWinFormTest.Components
             base.OnResize(e);
             Invalidate();
         }
-
     }
 }

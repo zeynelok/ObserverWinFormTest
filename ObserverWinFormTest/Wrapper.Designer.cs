@@ -37,9 +37,10 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(664, 17);
+            this.button2.Location = new System.Drawing.Point(498, 14);
+            this.button2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(113, 26);
+            this.button2.Size = new System.Drawing.Size(85, 21);
             this.button2.TabIndex = 1;
             this.button2.Text = "Send";
             this.button2.UseVisualStyleBackColor = true;
@@ -47,9 +48,10 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(43, 19);
+            this.textBox1.Location = new System.Drawing.Point(32, 15);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(326, 22);
+            this.textBox1.Size = new System.Drawing.Size(246, 20);
             this.textBox1.TabIndex = 2;
             // 
             // groupBox1
@@ -59,8 +61,10 @@
             this.groupBox1.Controls.Add(this.textBox1);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(800, 55);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Size = new System.Drawing.Size(600, 45);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Input";
@@ -69,23 +73,22 @@
             // 
             this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "Mühendis",
-            "İşçi",
-            "Ziyaretçi"});
-            this.comboBox1.Location = new System.Drawing.Point(393, 17);
+            this.comboBox1.Location = new System.Drawing.Point(295, 14);
+            this.comboBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(232, 24);
+            this.comboBox1.Size = new System.Drawing.Size(175, 21);
             this.comboBox1.TabIndex = 3;
             // 
             // Wrapper
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(600, 366);
             this.Controls.Add(this.groupBox1);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "Wrapper";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Wrapper_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);

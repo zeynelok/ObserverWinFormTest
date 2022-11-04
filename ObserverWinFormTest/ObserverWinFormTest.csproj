@@ -58,8 +58,12 @@
     <Compile Include="Components\ListBoard.Designer.cs">
       <DependentUpon>ListBoard.cs</DependentUpon>
     </Compile>
+    <Compile Include="Entity\Asset.cs" />
     <Compile Include="Message.cs" />
     <Compile Include="MessagesHandler.cs" />
+    <Compile Include="Settings\AssetType.cs" />
+    <Compile Include="Settings\FlowType.cs" />
+    <Compile Include="Settings\Operations.cs" />
     <Compile Include="Unsubscriber.cs" />
     <Compile Include="Wrapper.cs">
       <SubType>Form</SubType>
